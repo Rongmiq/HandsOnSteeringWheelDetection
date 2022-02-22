@@ -8,6 +8,7 @@
   
 ### 二、数据介绍
 HandsOnSteeringWheel  VOC格式的数据集，只标注了手这一个类别 https://aistudio.baidu.com/aistudio/datasetdetail/69849
+数据集划分：训练集：验证集：测试集 = 7：1：2
 <div>
 <ul>
 <li><img src="images/1_0000086_0_0_0_6.png" /></li>
@@ -59,7 +60,31 @@ Github:https://github.com/PaddlePaddle/PaddleDetection。
 </div>  
   
 ### 五、模型评估
-
+### 1.模型测试
+模型评估使用了Paddlex的API：https://github.com/PaddlePaddle/PaddleX/blob/develop/docs/apis/models/detection.md
+各参数介绍与调整说明：https://github.com/PaddlePaddle/PaddleX/blob/develop/docs/parameters.md
+      
+```shell
+model.evaluate(eval_dataset, 
+      batch_size=1, 
+      epoch_id=None, 
+      metric=None, 
+      return_details=False)
+```
+|Model |AP(VOC) |mAP<sup>val<br>0.5:0.95 | mAP<sup>val<br>0.5 |mAP<sup>val<br>0.75)|
+| ------        |:---:  |  :---:       |:---:     |:---:  |
+|PPYOLO |0.909  |0.739 | 0.990 |0.929 | 
+      
+### 2.测试用例可视化
+<div>
+<ul>
+<li><img src="images/visualize_1_0000009_0_0_0_6.png" /></li>
+<li><img src="images/visualize_15_0000543_0_0_0_0.png" /></li> 
+<li><img src="images/visualize_11_0000529_0_0_0_0.png" /></li> 
+<li><img src="images/visualize_1L_0012502_Q_6_2_5.png" /></li>
+<li><img src="images/visualize_2L_0002652_X_7_4_3.png" /></li> 
+</ul>
+</div>    
 
   
 ### 1.Installation paddlex
