@@ -1,5 +1,5 @@
 <p align="center">
-<img align="center" src="/logo.png", width=1600>
+<img align="center" src="images/logo.png", width=1600>
 <p>
   
 ## Hands On Steering Wheel Detection with PaddlePaddle and AI Studio
@@ -10,9 +10,8 @@
 HandsOnSteeringWheel  VOC格式的数据集，只标注了手这一个类别 https://aistudio.baidu.com/aistudio/datasetdetail/69849
 <div>
 <ul>
-<li><img src="/1_0000086_0_0_0_6.png" /></li>
-<li><img src="/10_0000739_0_0_0_0.png" /></li>
-<li><img src="/11_0000332_0_0_0_0.png"/></li>
+<li><img src="images/1_0000086_0_0_0_6.png" /></li>
+<li><img src="images/10_0000739_0_0_0_0.png" /></li>
 </ul>
 </div>  
 
@@ -20,6 +19,47 @@ HandsOnSteeringWheel  VOC格式的数据集，只标注了手这一个类别 htt
 目标检测算法的准确性和推理速度不可兼得，为了得到一个兼具性能和速度的检测器，我们选择了比yolo3基础模型训练更快，准确率更高的模型：PP-YOLO 
 paper:https://arxiv.org/abs/2007.12099 
 Github:https://github.com/PaddlePaddle/PaddleDetection。
+<p align="center">
+<img align="center" src="images/PPYOLO_arch.png", width=1600>
+<p>
+  
+### 四、模型训练
+  
+### 1.paddlex下载
+  ```shell
+    pip install "paddlex<=2.0.0" -i https://mirror.baidu.com/pypi/simple
+  ```
+### 2.模型训练
+    
+  模型训练使用了Paddlex的API：https://github.com/PaddlePaddle/PaddleX/blob/develop/docs/apis/models/detection.md
+ 
+  模型的轮次、学习率、调整策略等参数的设置如下：
+  ```shell
+  model.train(
+      num_epochs=200,
+      train_dataset=train_dataset,
+      train_batch_size=30,
+      eval_dataset=eval_dataset,
+      pretrain_weights='COCO',
+      learning_rate=0.005 / 12,
+      warmup_steps=500,
+      warmup_start_lr=0.0,
+      save_interval_epochs=5,
+      lr_decay_epochs=[85, 135],
+      save_dir='output/ppyolo_r50vd_dcn',
+      use_vdl=True)
+  ```
+ ### 3.训练可视化
+<div>
+<ul>
+<li><img src="images/-Metrics_Training(Step)_ lr.png" /></li>
+<li><img src="images/-Metrics_Training(Step)_ loss.png" /></li>
+<li><img src="images/-Metrics_Eval(Epoch)_ bbox_map.png" /></li>
+</ul>
+</div>  
+  
+### 五、模型评估
+
 
   
 ### 1.Installation paddlex
