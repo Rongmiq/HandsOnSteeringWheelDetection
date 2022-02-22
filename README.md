@@ -86,11 +86,12 @@ model.evaluate(eval_dataset,
 </ul>
 </div>    
 
+
+### 六、项目总结
+  本项目是飞桨领航团AI达人创造营第二期的一个入门级项目，有着非常大的改进空间。百度飞桨的AI开发套件十分的好用，希望飞桨越做越好！
   
-### 1.Installation paddlex
-pip install "paddlex<=2.0.0" -i https://mirror.baidu.com/pypi/simple
-
-
-### 3.models
+### 六、个人总结
+  主要研究领域：目标跟踪、对抗攻击。
+  邮箱：Rongmiq@gmail.com
  
  
