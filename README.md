@@ -71,6 +71,7 @@ model.evaluate(eval_dataset,
       metric=None, 
       return_details=False)
 ```
+      只进行了40轮训练
 |Model |AP(VOC) |mAP<sup>val<br>0.5:0.95 | mAP<sup>val<br>0.5 |mAP<sup>val<br>0.75)|
 | ------        |:---:  |  :---:       |:---:     |:---:  |
 |PPYOLO |0.909  |0.739 | 0.990 |0.929 | 
